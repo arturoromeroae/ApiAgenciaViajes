@@ -9,6 +9,7 @@ namespace AgenciaViajes.Repository
 
         //LISTAR
         Task<IEnumerable<Aerolinea>> GetAerolineas();
+        Task<Aerolinea> GetAerolineaById(int id);
 
         //ACTUALIZAR
         Task<Aerolinea> UpdateAerolinea(Aerolinea aerolinea);

@@ -40,6 +40,13 @@ namespace AgenciaViajes.Controllers
             return StatusCode(StatusCodes.Status200OK, responseDto);
         }
 
+        [Route("/GetTipoDocumento/{id}")]
+        [HttpGet]
+        public async Task<ActionResult<TipoDocumento>> GetTipoDocumentoById(int id)
+        {
+            return StatusCode(StatusCodes.Status200OK, await tipoDocumentoRepository.GetTipoDocumentoById(id));
+        }
+
         //////////////////////AGREGAR//////////////////////
         [HttpPost]
         [Route("/PlaceTipoDoc")]

@@ -43,6 +43,13 @@ namespace AgenciaViajes.Controllers
             return StatusCode(StatusCodes.Status200OK, responseDto);
         }
 
+        [Route("/GetCliente/{id}")]
+        [HttpGet]
+        public async Task<ActionResult<Cliente>> GetClienteById(int id)
+        {
+            return StatusCode(StatusCodes.Status200OK, await clienteRepository.GetClienteById(id));
+        }
+
         //////////////////////AGREGAR//////////////////////
         [HttpPost]
         [Route("/PlaceCliente")]

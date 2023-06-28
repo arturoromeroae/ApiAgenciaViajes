@@ -51,6 +51,13 @@ namespace AgenciaViajes.Controllers
             return StatusCode(StatusCodes.Status200OK, responseDto);
         }
 
+        [Route("/GetCompra/{id}")]
+        [HttpGet]
+        public async Task<ActionResult<Compra>> GetCompraById(int id)
+        {
+            return StatusCode(StatusCodes.Status200OK, await compraRepository.GetCompraById(id));
+        }
+
         //////////////////////AGREGAR//////////////////////
         [HttpPost]
         [Route("/PlaceCompra")]

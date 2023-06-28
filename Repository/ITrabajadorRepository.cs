@@ -9,6 +9,7 @@ namespace AgenciaViajes.Repository
 
         //LISTAR
         Task<IEnumerable<Trabajador>> GetWorkers();
+        Task<Trabajador> GetTrabajadorById(int id);
 
         //ACTUALIZAR
         Task<Trabajador> UpdateTrabajador(Trabajador trabajador);

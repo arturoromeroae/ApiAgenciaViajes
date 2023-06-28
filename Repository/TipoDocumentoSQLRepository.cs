@@ -1,4 +1,5 @@
 ﻿using AgenciaViajes.DbContexts;
+using AgenciaViajes.Exceptions;
 using AgenciaViajes.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,6 +16,18 @@ namespace AgenciaViajes.Repository
         public async Task<IEnumerable<TipoDocumento>> GetTiposDocs()
         {
             return await dbContext.tiposDocumentos.ToListAsync();
+        }
+
+        public async Task<TipoDocumento> GetTipoDocumentoById(int id)
+        {
+            var tipoDocumento = await dbContext.tiposDocumentos.Where(c => c.idTd == id)
+                .FirstOrDefaultAsync();
+
+            if (tipoDocumento == null)
+            {
+                throw new NotFoundException("Tipo Documento not found with id: " + id.ToString());
+            }
+            return tipoDocumento;
         }
 
         //////////////////////AGREGAR//////////////////////

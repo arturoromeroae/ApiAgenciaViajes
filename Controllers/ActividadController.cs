@@ -42,6 +42,13 @@ namespace AgenciaViajes.Controllers
             return StatusCode(StatusCodes.Status200OK, responseDto);
         }
 
+        [Route("/GetActividad/{id}")]
+        [HttpGet]
+        public async Task<ActionResult<Actividad>> GetCustomerById(int id)
+        {
+            return StatusCode(StatusCodes.Status200OK, await actividadRepository.GetActividadById(id));
+        }
+
         //////////////////////AGREGAR//////////////////////
         [HttpPost]
         [Route("/PlaceActividad")]

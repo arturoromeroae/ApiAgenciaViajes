@@ -9,6 +9,7 @@ namespace AgenciaViajes.Repository
 
         //LISTAR
         Task<IEnumerable<Vuelo>> GetVuelos();
+        Task<Vuelo> GetVueloById(int id);
 
         //ACTUALIZAR
         Task<Vuelo> UpdateVuelo(Vuelo vuelo);

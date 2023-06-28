@@ -9,6 +9,7 @@ namespace AgenciaViajes.Repository
 
         //LISTAR
         Task<IEnumerable<Actividad>> GetActividades();
+        Task<Actividad> GetActividadById(int id);
 
         //ACTUALIZAR
         Task<Actividad> UpdateActividad(Actividad actividad);

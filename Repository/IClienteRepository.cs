@@ -9,6 +9,7 @@ namespace AgenciaViajes.Repository
 
         //LISTAR
         Task<IEnumerable<Cliente>> GetClientes();
+        Task<Cliente> GetClienteById(int id);
 
         //ACTUALIZAR
         Task<Cliente> UpdateCliente(Cliente cliente);

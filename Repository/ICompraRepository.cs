@@ -9,6 +9,7 @@ namespace AgenciaViajes.Repository
 
         //LISTAR
         Task<IEnumerable<Compra>> GetCompras();
+        Task<Compra> GetCompraById(int id);
 
         //ACTUALIZAR
         Task<Compra> UpdateCompra(Compra compra);

@@ -1,7 +1,9 @@
 ﻿using AgenciaViajes.Dtos;
+using AgenciaViajes.Exceptions;
 using AgenciaViajes.Models;
 using AgenciaViajes.Repository;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace AgenciaViajes.Controllers
 {
@@ -38,6 +40,13 @@ namespace AgenciaViajes.Controllers
             this.responseDto.DisplayMessage = "Success";
 
             return StatusCode(StatusCodes.Status200OK, responseDto);
+        }
+
+        [Route("/GetAerolinea/{id}")]
+        [HttpGet]
+        public async Task<ActionResult<Actividad>> GetAerolineaById(int id)
+        {
+            return StatusCode(StatusCodes.Status200OK, await aerolineaRepository.GetAerolineaById(id));
         }
 
         //////////////////////AGREGAR//////////////////////

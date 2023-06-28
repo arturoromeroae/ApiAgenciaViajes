@@ -9,6 +9,7 @@ namespace AgenciaViajes.Repository
 
         //LISTAR
         Task<IEnumerable<TipoDocumento>> GetTiposDocs();
+        Task<TipoDocumento> GetTipoDocumentoById(int id);
 
         //ACTUALIZAR
         Task<TipoDocumento> UpdateTipoDocumento(TipoDocumento tipoDocumento);

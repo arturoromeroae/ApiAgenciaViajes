@@ -43,6 +43,13 @@ namespace AgenciaViajes.Controllers
             return StatusCode(StatusCodes.Status200OK, responseDto);
         }
 
+        [Route("/GetTrabajador/{id}")]
+        [HttpGet]
+        public async Task<ActionResult<Trabajador>> GetTrabajadorById(int id)
+        {
+            return StatusCode(StatusCodes.Status200OK, await trabajadorRepository.GetTrabajadorById(id));
+        }
+
         //////////////////////AGREGAR//////////////////////
         [HttpPost]
         [Route("/PlaceWorker")]

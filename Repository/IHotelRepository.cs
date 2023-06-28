@@ -9,6 +9,7 @@ namespace AgenciaViajes.Repository
 
         //LISTAR
         Task<IEnumerable<Hotel>> GetHoteles();
+        Task<Hotel> GetHotelById(int id);
 
         //ACTUALIZAR
         Task<Hotel> UpdateHotel(Hotel hotel);

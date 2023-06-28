@@ -1,6 +1,8 @@
 ﻿using AgenciaViajes.DbContexts;
+using AgenciaViajes.Exceptions;
 using AgenciaViajes.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 
 namespace AgenciaViajes.Repository
 {
@@ -15,6 +17,18 @@ namespace AgenciaViajes.Repository
         public async Task<IEnumerable<Actividad>> GetActividades()
         {
             return await dbContext.actividades.ToListAsync();
+        }
+
+        public async Task<Actividad> GetActividadById(int id)
+        {
+            var actividad = await dbContext.actividades.Where(c => c.idAct == id)
+                .FirstOrDefaultAsync();
+
+            if (actividad == null)
+            {
+                throw new NotFoundException("Customer not found with id: " + id.ToString());
+            }
+            return actividad;
         }
 
         //////////////////////AGREGAR//////////////////////
